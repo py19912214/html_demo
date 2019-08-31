@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/canvas.css" type="text/css" />
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div id="centext">
+        <div class="leftDiv">
+            <div class="titleDiv">
+                <p>请选择节点：</p>
+            </div>
+            <div class="shapeDiv">
+                <div class="circle nodeModal" id="start" onclick="selectNode(this)" ondragstart="drag(event)">
+                    <p class="circleNameP">开始</p>
+                </div>
+                <br />
+                <div class="rectangle nodeModal" id="service" onclick="selectNode(this)" ondragstart="drag(event)">
+                    <p class="rectangleNameP">服务节点</p>
+                </div>
+                <br />
+                <div class="circle nodeModal" id="end" onclick="selectNode(this)" ondragstart="drag(event)">
+                    <p class="circleNameP">结束</p>
+                </div>
+                <br />
+                <div class="nodeModal node" id="line" onclick="selectNode(this)">
+                    <svg width="9rem" height="5rem">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto"
+                                markerUnits="strokeWidth" viewBox="0 0 20 20">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#f00"></path>
+                            </marker>
+                        </defs>
+                        <line x1="0" y1="3rem" x2="8rem" y2="3rem" stroke="#000" stroke-width="3"
+                            marker-end="url(#arrow)"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="centerDiv">
+            <div class="centerSubDiv" ondrop="drop(event)" ondragover="allowDrop(event)" onmouseup="nodeMouseUp(event,this)">
+            </div>
+            <svg id="lineSvg">
+                 
+            </svg>
+        </div>
+        <div class="rightDiv">
+        </div>
+    </div>
+    <!--自定义右键菜单-->
+    <div id="menu">
+        <ul>
+            <li onclick="modifyNode()">修改</li>
+            <li onclick="deleteNode()">删除</li>
+        </ul>
+    </div>
+</body>
+
+</html>
